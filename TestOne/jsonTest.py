@@ -13,14 +13,13 @@ jsonData=readJsonData()
 ids=list()
 
     
-    
 for items in jsonData['Tasks']:
     ids.append(items['id']) 
 
 
 
-def addItem(Ids,newId,description,createdAt='',updatedAt='',status='in progress'):
-    if Ids.count(str(newId))==1:
+def addItem(data,newId,description,createdAt='',updatedAt='',status='in progress'):
+    if data.count(str(newId))==1:
        return(ValueError)
     else:
         newString={
@@ -32,6 +31,24 @@ def addItem(Ids,newId,description,createdAt='',updatedAt='',status='in progress'
         }
         jsonData['Tasks'].append(newString)
    
+def deleteItem(data,ID):
+    for item in data['Tasks']:
+        if item['id']==f'{ID}':
+            print(item)
+            data['Tasks'].remove(item)
+            # print(data)
+
+def updateItem(ID,description,data):
+    for item in data['Tasks']:
+        if item['id']==(f'{ID}'):
+            item['description']=f'{description}'
+
+def markTask(ID,status):
+    for item in data['Tasks']:
+        if item['id']==(f'{ID}'):
+            item['status'] = f'{status}'
+def listTasks(status=''):
+    pass
 
 try:
     readJsonData()
@@ -41,6 +58,11 @@ except:
 else:
     jsonCheck()
 
-addItem(ids,2,'jija')
+# addItem(ids,2,'jija')
 
-writeJsonData(jsonData)
+deleteItem(jsonData,0)
+print(jsonData)
+
+# writeJsonData(jsonData)
+
+
