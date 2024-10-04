@@ -1,5 +1,5 @@
 import json
-from testjson import jsonCheck 
+from jsonHandler import jsonCheck 
 
 def readJsonData():
     with open('Tasks.json') as f:
