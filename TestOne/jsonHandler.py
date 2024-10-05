@@ -23,7 +23,6 @@ def createJson():
 def jsonCheck():
     try:
         jsonData=readJsonData()
-        print('nice')
     except json.JSONDecodeError:
         createJson()
     except FileNotFoundError:

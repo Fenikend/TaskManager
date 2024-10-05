@@ -41,13 +41,23 @@ def addItem(data,description,createdAt='',status='todo'):
         'updatedAt':f'{updatedAt}',
         'status':f'{status}'}
     jsonData['Tasks'].append(newString)
-   
+
+def checker(data):
+    oldId=0
+    for item in data['Tasks']:
+        if int(item['id'])==oldId:
+            oldId=oldId+1
+        else:
+            item['id']=str(oldId)
+            oldId=oldId+1
+
 def deleteItem(data,ID):
     for item in data['Tasks']:
         if item['id']==f'{ID}':
             print(item)
             data['Tasks'].remove(item)
             # print(data)
+    checker(data)
 
 def updateItem(data,ID,description):
     for item in data['Tasks']: 
@@ -62,9 +72,15 @@ def updateItem(data,ID,description):
 
 def markTask(data,ID,status):
     for item in data['Tasks']:
+        if f'{ID}' in ids:
+            print('')
+        else:
+            print('No such id')
+            return 0
         if item['id']==(f'{ID}'):
             item['status'] = f'{status}'
             item['updatedAt']=f'{updatedAt}'
+        
     #writeJsonData(data)
 
 def listTasks(data,status):
@@ -84,7 +100,7 @@ def listTasks(data,status):
     
        
 
-#addItem(ids,'jija')
+# addItem(ids,'jija1')
 #listTasks(jsonData,'')
 # markTask(jsonData,1,'done')
 # print(jsonData)
