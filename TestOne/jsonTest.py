@@ -4,14 +4,6 @@ from jsonHandler import jsonCheck,readJsonData,writeJsonData
 
 
 
-# def readJsonData():
-#     with open('Tasks.json','r') as f:
-#         data=json.load(f)
-#     return data
-# def writeJsonData(data): 
-#     with open('Tasks.json','w') as f:
-#         json.dump(data,f,indent=2)
-
 
 now = datetime.now()
 jsonCheck()
@@ -21,9 +13,7 @@ ids=list()
 for items in jsonData['Tasks']:
     ids.append(items['id'])  
 updatedAt=now.strftime("%m/%d/%Y, %H:%M:%S")
-# def integrityCheck():
-    
-#     pass
+
 
 
 def addItem(data,description,createdAt='',status='todo'):
@@ -61,7 +51,6 @@ def deleteItem(data,ID):
 
 def updateItem(data,ID,description):
     for item in data['Tasks']: 
-        # print(ID==item['id'])
         if item['id']==(str(ID)):
             print(ID)
             item['description']=f'{description}'
