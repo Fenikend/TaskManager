@@ -34,7 +34,7 @@ class MyCLI(cmd.Cmd):
         user_input_id=line.partition(' ')[0]
         deleteItem(jsonData,user_input_id)
         writeJsonData(jsonData)
-       #pass
+
     
     def do_update(self,line):
         if line == '':
