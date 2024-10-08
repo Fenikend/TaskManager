@@ -75,15 +75,19 @@ def listTasks(data,status):
     checkline=''
     if status =='':
         for item in data['Tasks']:
-            print (item['id'],' ',item['description'])
+            print (item['id'],' '
+                   ,item['description'],' ',
+                   f'({item['status']})')
         return 1
-    
     for item in data['Tasks']:
         if item['status']==status:
             checkline+=item['id']
-            print (item['id'],' ',item['description'])
+            print (item['id'],' '
+                   ,item['description'],' '
+                   ,f'({item['status']})')
     if checkline=='':
         print('No tasks')
+
 
     
 
