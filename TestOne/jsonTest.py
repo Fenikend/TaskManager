@@ -81,7 +81,6 @@ def markTask(data,ID,status):
             item['status'] = f'{status}'
             item['updatedAt']=f'{updatedAt}'
         
-    #writeJsonData(data)
 
 def listTasks(data,status):
     checkline=''
@@ -98,15 +97,6 @@ def listTasks(data,status):
         print('No tasks')
 
     
-       
 
-# addItem(ids,'jija1')
-#listTasks(jsonData,'')
-# markTask(jsonData,1,'done')
-# print(jsonData)
-# deleteItem(jsonData,0)
-# print(jsonData)
-# updateItem(jsonData,1,)
-# writeJsonData(jsonData)
 
 
