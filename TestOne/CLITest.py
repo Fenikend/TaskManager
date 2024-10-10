@@ -3,9 +3,7 @@ from jsonTest import *
 class MyCLI(cmd.Cmd):
     jsonCheck()
     jsonData=readJsonData()
-    ids=list()
-    for items in jsonData['Tasks']:
-        ids.append(items['id'])  
+    ids = [item['id'] for item in jsonData['Tasks']]
 
     prompt = '>> '
     intro = '''
@@ -34,7 +32,7 @@ class MyCLI(cmd.Cmd):
         user_input_id=line.partition(' ')[0]
         deleteItem(jsonData,user_input_id)
         writeJsonData(jsonData)
-
+       #pass
     
     def do_update(self,line):
         if line == '':
