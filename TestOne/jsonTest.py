@@ -4,25 +4,13 @@ from jsonHandler import jsonCheck,readJsonData,writeJsonData
 
 
 
-# def readJsonData():
-#     with open('Tasks.json','r') as f:
-#         data=json.load(f)
-#     return data
-# def writeJsonData(data): 
-#     with open('Tasks.json','w') as f:
-#         json.dump(data,f,indent=2)
-
-
 now = datetime.now()
 jsonCheck()
 
 jsonData=readJsonData()
 ids = [item['id'] for item in jsonData['Tasks']]
 updatedAt=now.strftime("%m/%d/%Y, %H:%M:%S")
-# def integrityCheck():
     
-#     pass
-
 
 def addItem(data,description,createdAt='',status='todo'):
     if len(data)==0:
@@ -55,12 +43,10 @@ def deleteItem(data,ID):
         if item['id']==f'{ID}':
             print(item)
             data['Tasks'].remove(item)
-            # print(data)
     checker(data)
 
 def updateItem(data,ID,description):
     for item in data['Tasks']: 
-        # print(ID==item['id'])
         if item['id']==(str(ID)):
             # print(ID)
             item['description']=f'{description}'
@@ -101,14 +87,7 @@ def listTasks(data,status):
     
        
 
-# addItem(ids,'jija1')
-#listTasks(jsonData,'')
-# markTask(jsonData,1,'done')
-# print(jsonData)
-# deleteItem(jsonData,0)
-# print(jsonData)
-# updateItem(jsonData,1,)
-# writeJsonData(jsonData)
+
 if __name__ == "__main__":
     for item in jsonData['Tasks']:
         print(item['id'])
